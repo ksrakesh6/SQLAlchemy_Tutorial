@@ -12,10 +12,9 @@ base = declarative_base()
 class actor(base):
     __tablename__ = 'actor'
     actor_id = db.Column(db.Integer,
-                         db.ForeignKey(),
-                         primary_key=True),
-    first_name = db.Column(db.String(45)),
-    last_name = db.Column(db.String(45)),
+                         primary_key=True)
+    first_name = db.Column(db.String(45))
+    last_name = db.Column(db.String(45))
     last_update = db.Column(db.DateTime)
 
     def __repr__(self):
