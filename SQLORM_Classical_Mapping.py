@@ -1,7 +1,14 @@
 """Classical Mapping Example """
 
 import sqlalchemy as db
-from sqlalchemy import Table, MetaData, Column, Integer, String, DateTime
+from sqlalchemy import (
+                        Table,
+                        MetaData,
+                        Column,
+                        Integer,
+                        String,
+                        DateTime,
+                        Sequence)
 from sqlalchemy.orm import mapper
 
 # Postgress Engine  Initiation
@@ -15,7 +22,9 @@ metadata = MetaData()
 Actor = Table(
          'actor',
          metadata,
-         Column('actor_id', Integer, primary_key=True),
+         Column('actor_id', Integer,
+                Sequence('actor_actor_id_seq'),
+                primary_key=True),
          Column('first_name', String(45)),
          Column('last_name', String(45)),
          Column('last_update', DateTime))
