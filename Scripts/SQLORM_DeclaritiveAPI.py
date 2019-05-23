@@ -5,7 +5,7 @@ import sqlalchemy as db
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-"To Spin up a session "
+# To Spin up a session "
 session = sessionmaker()
 engine_pg = db.create_engine(r'postgresql://aadhi@localhost:3967/dvdrental')
 session.configure(bind=engine_pg)
