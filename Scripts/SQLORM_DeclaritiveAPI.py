@@ -33,4 +33,3 @@ class actor(base):
 # To fetch the 1st row of data
 tb_data = pg_session.query(actor)
 print(tb_data.first().first_name)
-
