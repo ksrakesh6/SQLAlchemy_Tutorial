@@ -24,12 +24,19 @@ class actor(base):
 
     def __repr__(self):
         "String Representation"
-        return ("Actor_id : {0} Name : {1} Updated on : {2}".format(
+        return ("Actor_id : {0} Name : {1} Updated on : {2}\n".format(
                 self.actor_id,
                 ' '.join([self.first_name, self.last_name]),
                 self.last_update))
 
 
-# To fetch the 1st row of data
+# To fetch the 1st row of data - Select single column in SQL
 tb_data = pg_session.query(actor)
 print(tb_data.first().first_name)
+
+# To Filter Data in the table- where in SQL
+print(tb_data.filter(actor.first_name == 'Julia').all())
+
+# To Filter Data by checking contains - Like % in SQL
+print(tb_data.filter(actor.first_name.like('%Chr%')).all())
+print(tb_data.filter(actor.first_name.contains('Chr')).all())
